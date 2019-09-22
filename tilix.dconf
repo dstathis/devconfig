@@ -1,0 +1,8 @@
+[/]
+quake-specific-monitor=0
+theme-variant='dark'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+use-theme-colors=true
+palette=['#000000', '#AA0000', '#00AA00', '#AA5400', '#0000AA', '#AA00AA', '#00AAAA', '#AAAAAA', '#545454', '#FF5454', '#54FF54', '#FFFF54', '#5454FF', '#FF54FF', '#54FFFF', '#FFFFFF']
+visible-name='Default'
