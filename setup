@@ -1,6 +1,10 @@
 #!/bin/bash
 
-pkgs="i3 i3status dmenu i3lock xbacklight feh tilix pulseaudio-utils playerctl"
+if [ -z ${1} ]; then
+	read -p "Email for git: " gitemail
+fi
+
+pkgs="i3 i3status dmenu tilix pulseaudio-utils playerctl vim git mercurial mock python3-virtualenv"
 
 rpm -q ${pkgs} > /dev/null
 if [ $? -ne 0 ]; then
@@ -12,3 +16,23 @@ sudo cp i3status.conf /etc/i3status.conf
 cp setvol ~/bin/
 
 dconf load /com/gexperts/Tilix/ < tilix.dconf
+
+cp aliases ~/.aliases
+
+cp gitconfig ~/.gitconfig
+if [ ! -z ${gitemail} ]; then
+	sed -i "s/email = .*/email = ${gitemail}/g" ~/.gitconfig
+fi
+
+grep "\.aliases" ~/.bashrc
+if [ $? -ne 0 ]; then
+	echo '. ~/.aliases' >> ~/.bashrc
+fi
+
+# Setup vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p ${HOME}/.vim/ftplugin
+mkdir -p ${HOME}/.vim/indent
+cp vimrc ${HOME}/.vimrc
+cp indent/* ${HOME}/.vim/indent/
+mkdir -p ${HOME}/.vim/plugins
