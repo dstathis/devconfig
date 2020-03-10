@@ -1,0 +1,32 @@
+# i3 Stuff
+i3
+i3status
+dmenu
+pulseaudio-utils
+playerctl
+
+# Source Control
+git
+mercurial
+
+# Development Tools
+gcc
+gcc-c++
+mock
+python3-virtualenv
+python3-devel
+libcurl-devel
+
+# General Utils
+tilix
+vim
+xclip
+screen
+
+# Virtualization Group
+virt-install
+libvirt-daemon-config-network
+libvirt-daemon-kvm
+qemu-kvm
+virt-manager
+virt-viewer
