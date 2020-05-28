@@ -17,3 +17,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+
+" I think this is needed for git-blame.vim
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
