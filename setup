@@ -25,9 +25,13 @@ if [ ! -z ${gitemail} ]; then
 	sed -i "s/email = .*/email = ${gitemail}/g" ~/.gitconfig
 fi
 
-grep "\.aliases" ~/.bashrc
+grep -q "\.aliases" ~/.bashrc
 if [ $? -ne 0 ]; then
 	echo '. ~/.aliases' >> ~/.bashrc
+fi
+grep -q 'ssh-add id_rsa\*\.pub' ~/.bashrc
+if [ $? -ne 0 ]; then
+	echo 'ssh-add id_rsa*.pub' >> ~/.bashrc
 fi
 
 # Setup vim
