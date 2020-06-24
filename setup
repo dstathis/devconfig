@@ -4,11 +4,30 @@ if [ -z ${1} ]; then
 	read -p "Email for git: " gitemail
 fi
 
-pkgs=$(cat pkgs | sed '/#.*\|^$/d')
+. /etc/os-release
 
-rpm -q ${pkgs} > /dev/null
-if [ $? -ne 0 ]; then
-	sudo dnf install -y ${pkgs}
+if [ ${ID_LIKE} == "debian" ]; then
+    os=debian
+elif [ ${ID} == "fedora" ]; then
+    os=fedora
+else
+    echo "ERROR: Unknown OS" 1>&2
+fi
+
+pkgs=$(cat pkgs-common pkgs-${os} | sed '/#.*\|^$/d')
+
+if [ ${os} == "fedora" ]; then
+    rpm -q ${pkgs} > /dev/null
+    if [ $? -ne 0 ]; then
+            sudo dnf install -y ${pkgs}
+    fi
+fi
+
+if [ ${os} == debian ]; then
+    dpkg -V ${pkgs} > /dev/null
+    if [ $? -ne 0 ]; then
+        sudo apt install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew ${pkgs}
+    fi
 fi
 
 mkdir -p ~/.config/i3 ~/bin
@@ -22,16 +41,16 @@ cp aliases ~/.aliases
 
 cp gitconfig ~/.gitconfig
 if [ ! -z ${gitemail} ]; then
-	sed -i "s/email = .*/email = ${gitemail}/g" ~/.gitconfig
+    sed -i "s/email = .*/email = ${gitemail}/g" ~/.gitconfig
 fi
 
 grep -q "\.aliases" ~/.bashrc
 if [ $? -ne 0 ]; then
-	echo '. ~/.aliases' >> ~/.bashrc
+    echo '. ~/.aliases' >> ~/.bashrc
 fi
 grep -q 'ssh-add id_rsa\*\.pub' ~/.bashrc
 if [ $? -ne 0 ]; then
-	echo 'ssh-add id_rsa*.pub' >> ~/.bashrc
+    echo 'ssh-add id_rsa*.pub' >> ~/.bashrc
 fi
 
 # Setup vim

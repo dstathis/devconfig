@@ -1,0 +1,10 @@
+# Development Tools
+gcc-c++
+mock
+python3-devel
+libcurl-devel
+
+# Virtualization
+virt-install
+libvirt-daemon-config-network
+libvirt-daemon-kvm
