@@ -12,6 +12,7 @@ mercurial
 # Development Tools
 gcc
 python3-virtualenv
+curl
 
 # General Utils
 tilix
