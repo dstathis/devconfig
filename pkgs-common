@@ -19,6 +19,7 @@ tilix
 vim
 xclip
 screen
+ripgrep
 
 # Virtualization Group
 qemu-kvm
