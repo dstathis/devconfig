@@ -170,6 +170,7 @@ bar {
 }
 
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +10% #increase sound volume

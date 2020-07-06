@@ -4,6 +4,8 @@ i3status
 dmenu
 pulseaudio-utils
 playerctl
+pasystray
+pavucontrol
 
 # Source Control
 git
@@ -11,8 +13,9 @@ mercurial
 
 # Development Tools
 gcc
-python3-virtualenv
 curl
+python3-virtualenv
+python3-flake8
 
 # General Utils
 tilix
