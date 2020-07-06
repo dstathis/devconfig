@@ -2,6 +2,7 @@
 g++
 python3-dev
 libcurl4-openssl-dev
+flake8
 
 # General Utils
 apt-file
