@@ -18,5 +18,8 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
+" Show tabs
+set list listchars=tab:⟶\ 
+
 " I think this is needed for git-blame.vim
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
