@@ -9,3 +9,4 @@
 	out	= "!f() { git fetch -q && git log --pretty=oneline --abbrev-commit --graph @{u}.. $@ ; }; f"
 	in	= "!f() { git fetch -q && git log --pretty=oneline --abbrev-commit --graph ..@{u} $@ ; }; f"
 	unstash	= stash apply
+	pullup	= !git pull --ff-only origin $(git branch --show-current) && git push
