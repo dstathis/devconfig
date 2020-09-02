@@ -11,12 +11,7 @@ call plug#end()
 
 set number
 set bg=dark
-
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
+set hlsearch
 
 " Show tabs
 set list listchars=tab:⟶\ 

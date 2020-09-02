@@ -61,5 +61,7 @@ fi
 mkdir -p ${HOME}/.vim/ftplugin
 mkdir -p ${HOME}/.vim/indent
 cp vimrc ${HOME}/.vimrc
+mkdir -p ${HOME}/.vim/ftplugin
+cp vimrc-python ${HOME}/.vim/ftplugin/python.vim
 cp indent/* ${HOME}/.vim/indent/
 mkdir -p ${HOME}/.vim/plugins
