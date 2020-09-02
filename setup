@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z ${1} ]; then
-	read -p "Email for git: " gitemail
+    read -p "Email for git: " gitemail
 fi
 
 . /etc/os-release
