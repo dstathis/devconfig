@@ -1,3 +1,6 @@
+# i3 Stuff
+dmenu
+
 # Development Tools
 gcc-c++
 mock
