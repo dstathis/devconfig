@@ -24,7 +24,7 @@ if [ ${os} == "fedora" ]; then
 fi
 
 if [ ${os} == debian ]; then
-    dpkg -V ${pkgs} > /dev/null
+    dpkg -V ${pkgs} 1>/dev/null 2>/dev/null
     if [ $? -ne 0 ]; then
         sudo apt install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew ${pkgs}
     fi
