@@ -32,7 +32,10 @@ fi
 
 mkdir -p ~/.config/i3 ~/bin
 cp ./i3 ~/.config/i3/config
-sudo cp i3status.conf /etc/i3status.conf
+if [ -f ~/.config/i3/local-config ]; then
+    cat ~/.config/i3/local-config >> ~/.config/i3/config
+fi
+cp i3status.conf ~/.i3status.conf
 cp setvol ~/bin/
 
 dconf load /com/gexperts/Tilix/ < tilix.dconf
