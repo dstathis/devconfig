@@ -5,6 +5,8 @@ pulseaudio-utils
 playerctl
 pasystray
 pavucontrol
+redshift
+redshift-gtk
 
 # Source Control
 git
