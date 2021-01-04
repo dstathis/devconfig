@@ -1,5 +1,5 @@
 # i3 Stuff
-suckless-tools
+!suckless-tools
 
 # Development Tools
 g++
@@ -11,8 +11,8 @@ flake8
 apt-file
 
 # Virtualization
-virtinst
-libvirt-daemon
-libvirt-daemon-system
-libvirt-clients
+!virtinst
+!libvirt-daemon
+!libvirt-daemon-system
+!libvirt-clients
 

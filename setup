@@ -1,6 +1,32 @@
 #!/bin/bash
 
-if [ -z ${1} ]; then
+function printhelp {
+    echo USAGE: setup [k] [--headless]
+}
+
+# READ ARGS
+while [ ! -z  ${1} ]; do
+    case ${1} in
+        '--headless')
+            headless='yes'
+            ;;
+        'k')
+            skipemail='yes'
+            ;;
+        *)
+            printhelp
+            exit 1
+    esac
+    shift
+done
+
+if [ -z ${headless} ]; then
+    pkgpattern='s/!//g'
+else
+    pkgpattern='s/!/#/g'
+fi
+
+if [ -z ${skipemail} ]; then
     read -p "Email for git: " gitemail
 fi
 
@@ -14,7 +40,7 @@ else
     echo "ERROR: Unknown OS" 1>&2
 fi
 
-pkgs=$(cat pkgs-common pkgs-${os} | sed '/#.*\|^$/d')
+pkgs=$(cat pkgs-common pkgs-${os} | sed ${pkgpattern} | sed '/#.*\|^$/d')
 
 if [ ${os} == "fedora" ]; then
     rpm -q ${pkgs} > /dev/null

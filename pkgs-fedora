@@ -1,5 +1,5 @@
 # i3 Stuff
-dmenu
+!dmenu
 
 # Development Tools
 gcc-c++
@@ -8,6 +8,6 @@ python3-devel
 libcurl-devel
 
 # Virtualization
-virt-install
-libvirt-daemon-config-network
-libvirt-daemon-kvm
+!virt-install
+!libvirt-daemon-config-network
+!libvirt-daemon-kvm

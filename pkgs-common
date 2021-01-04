@@ -1,12 +1,12 @@
 # i3 Stuff
-i3
-i3status
-pulseaudio-utils
-playerctl
-pasystray
-pavucontrol
-redshift
-redshift-gtk
+!i3
+!i3status
+!pulseaudio-utils
+!playerctl
+!pasystray
+!pavucontrol
+!redshift
+!redshift-gtk
 
 # Source Control
 git
@@ -19,13 +19,13 @@ python3-virtualenv
 python3-flake8
 
 # General Utils
-tilix
+!tilix
 vim
-xclip
+!xclip
 screen
 ripgrep
 
 # Virtualization Group
-qemu-kvm
-virt-manager
-virt-viewer
+!qemu-kvm
+!virt-manager
+!virt-viewer
