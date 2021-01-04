@@ -1,6 +1,7 @@
 [user]
 	name = Dylan Stephano-Shachter
 	email = dylan@theone.ninja
+	signingkey = E32DC894035A5AD81AC6DD81462D65B6C1111786
 [alias]
         cc      = commit -m
 	st	= status
