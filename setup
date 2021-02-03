@@ -56,15 +56,17 @@ if [ ${os} == debian ]; then
     fi
 fi
 
-mkdir -p ~/.config/i3 ~/bin
-cp ./i3 ~/.config/i3/config
-if [ -f ~/.config/i3/local-config ]; then
-    cat ~/.config/i3/local-config >> ~/.config/i3/config
-fi
-cp i3status.conf ~/.i3status.conf
-cp setvol ~/bin/
+if [ -z ${headless} ]; then
+    mkdir -p ~/.config/i3 ~/bin
+    cp ./i3 ~/.config/i3/config
+    if [ -f ~/.config/i3/local-config ]; then
+        cat ~/.config/i3/local-config >> ~/.config/i3/config
+    fi
+    cp i3status.conf ~/.i3status.conf
+    cp setvol ~/bin/
 
-dconf load /com/gexperts/Tilix/ < tilix.dconf
+    dconf load /com/gexperts/Tilix/ < tilix.dconf
+fi
 
 cp aliases ~/.aliases
 
