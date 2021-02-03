@@ -89,10 +89,7 @@ fi
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-mkdir -p ${HOME}/.vim/ftplugin
 mkdir -p ${HOME}/.vim/indent
 cp vimrc ${HOME}/.vimrc
-mkdir -p ${HOME}/.vim/ftplugin
-cp vimrc-python ${HOME}/.vim/ftplugin/python.vim
 cp indent/* ${HOME}/.vim/indent/
 mkdir -p ${HOME}/.vim/plugins

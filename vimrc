@@ -18,3 +18,7 @@ set list listchars=tab:⟶\
 
 " I think this is needed for git-blame.vim
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+" Fix indentation for file types
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
+autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab smarttab
