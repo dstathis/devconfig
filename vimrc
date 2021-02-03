@@ -14,6 +14,10 @@ set number
 set bg=dark
 set hlsearch
 
+" Configure indentLine
+let g:indentLine_color_tty_dark = 1
+let g:indentLine_showFirstIndentLevel = 1
+
 " Show tabs
 set list listchars=tab:⟶\ 
 
