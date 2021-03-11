@@ -13,3 +13,5 @@
 	pullup	= !git pull --ff-only origin $(git branch --show-current) && git push
 [commit]
 	gpgsign	= true
+[log]
+	showSignature	= true
