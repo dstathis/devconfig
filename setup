@@ -32,9 +32,9 @@ fi
 
 . /etc/os-release
 
-if [ ${ID_LIKE} == "debian" ]; then
+if [ "${ID_LIKE}" == "debian" ]; then
     os=debian
-elif [ ${ID} == "fedora" ]; then
+elif [ "${ID}" == "fedora" ]; then
     os=fedora
 else
     echo "ERROR: Unknown OS" 1>&2
@@ -42,14 +42,14 @@ fi
 
 pkgs=$(cat pkgs-common pkgs-${os} | sed ${pkgpattern} | sed '/#.*\|^$/d')
 
-if [ ${os} == "fedora" ]; then
+if [ "${os}" == "fedora" ]; then
     rpm -q ${pkgs} > /dev/null
     if [ $? -ne 0 ]; then
             sudo dnf install -y ${pkgs}
     fi
 fi
 
-if [ ${os} == debian ]; then
+if [ "${os}" == debian ]; then
     dpkg -V ${pkgs} 1>/dev/null 2>/dev/null
     if [ $? -ne 0 ]; then
         sudo apt install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew ${pkgs}
@@ -57,17 +57,10 @@ if [ ${os} == debian ]; then
 fi
 
 if [ -z ${headless} ]; then
-    mkdir -p ~/.config/i3 ~/bin
-    cp ./i3 ~/.config/i3/config
-    if [ -f ~/.config/i3/local-config ]; then
-        cat ~/.config/i3/local-config >> ~/.config/i3/config
-    fi
-    cp i3status.conf ~/.i3status.conf
-    cp setvol ~/bin/
-
     dconf load /com/gexperts/Tilix/ < tilix.dconf
 fi
 
+mkdir -p ~/.aliases.d
 cp aliases ~/.aliases
 
 cp gitconfig ~/.gitconfig

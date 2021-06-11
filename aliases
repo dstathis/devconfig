@@ -27,3 +27,5 @@ virsh () {
 		command virsh "$@"
 	fi
 }
+
+. ~/.aliases.d/*
