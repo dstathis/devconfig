@@ -28,4 +28,6 @@ virsh () {
 	fi
 }
 
+shopt -s nullglob
 . ~/.aliases.d/*
+shopt -u nullglob
