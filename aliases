@@ -28,6 +28,6 @@ virsh () {
 	fi
 }
 
-shopt -s nullglob
-. ~/.aliases.d/*
-shopt -u nullglob
+if [ ! -z "$(\ls ~/.aliases.d)" ]; then
+	. ~/.aliases.d/*
+fi
