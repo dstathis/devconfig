@@ -11,7 +11,7 @@ while [ ! -z  ${1} ]; do
             headless='yes'
             ;;
         'k')
-            skipemail='yes'
+            skipgit='yes'
             ;;
         *)
             printhelp
@@ -26,8 +26,9 @@ else
     pkgpattern='s/!/#/g'
 fi
 
-if [ -z ${skipemail} ]; then
+if [ -z ${skipgit} ]; then
     read -p "Email for git: " gitemail
+    read -p "GPG key: " gpgkey
 fi
 
 . /etc/os-release
@@ -63,9 +64,10 @@ fi
 mkdir -p ~/.aliases.d
 cp aliases ~/.aliases
 
-cp gitconfig ~/.gitconfig
-if [ ! -z ${gitemail} ]; then
-    sed -i "s/email = .*/email = ${gitemail}/g" ~/.gitconfig
+if [ -z ${skipgit} ]; then
+    cp gitconfig ~/.gitconfig
+    sed -i "s/{{ email }}/${gitemail}/g" ~/.gitconfig
+    sed -i "s/{{ signingkey }}/${gpgkey}/g" ~/.gitconfig
 fi
 
 grep -q "\.aliases" ~/.bashrc
