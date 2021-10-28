@@ -5,7 +5,6 @@ alias less='less -r'
 alias vim='vim -O'
 alias fin='find . -name'
 alias please='sudo $(fc -ln -1)'
-alias df='df | grep -v /var/snap | grep -v /snap'
 
 cd () {
         if [ -z $@ ]; then
