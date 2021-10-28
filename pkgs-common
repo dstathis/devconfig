@@ -19,3 +19,6 @@ ripgrep
 !qemu-kvm
 !virt-manager
 !virt-viewer
+
+# Desktop Environment
+!chrome-gnome-shell
