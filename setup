@@ -57,9 +57,11 @@ if [ "${os}" == debian ]; then
     fi
 fi
 
+# Setup tilix
 if [ -z ${headless} ]; then
     dconf load /com/gexperts/Tilix/ < tilix.dconf
 fi
+sudo update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
 
 mkdir -p ~/.aliases.d
 cp aliases ~/.aliases
