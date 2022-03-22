@@ -1,0 +1,9 @@
+i3-wm.binding.left: j
+i3-wm.binding.right: semicolon
+i3-wm.binding.up: l
+i3-wm.binding.down: k
+i3-wm.binding.move_left: shift+j
+i3-wm.binding.move_right: shift+semicolon
+i3-wm.binding.move_up: shift+l
+i3-wm.binding.move_down: shift+k
+i3-wm.gaps.inner.size: 0
