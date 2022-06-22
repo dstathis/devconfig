@@ -93,8 +93,13 @@ if [ -z ${headless} ]; then
     sudo update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
 
     # Setup regolith
-    if [ -d ~/.config/regolith ]; then
-        cp regolith/Xresources ~/.config/regolith/Xresources
+    if [ -d ~/.config/regolith2 ]; then
+        # Set Xresources
+        cp regolith/Xresources ~/.config/regolith2/Xresources
+        # Set up bar
+        mkdir -p ~/.config/regolith2/i3xrocks/conf.d
+        cp regolith/bar/* ~/.config/regolith2/i3xrocks/conf.d/
+        # Refresh i3
         regolith-look refresh
     fi
 fi

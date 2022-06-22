@@ -1,0 +1,9 @@
+# Date Time
+[greece-time]
+TZ=Europe/Athens
+command=date "+%I:%M %p"
+interval=xresource:i3xrocks.time.interval 10
+color=#1269C7
+
+[time]
+interval=xresource:i3xrocks.time.interval 10
