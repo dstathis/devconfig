@@ -1,6 +1,7 @@
 # Development Tools
 gcc-c++
 mock
+rpmdevtools
 python3-devel
 libcurl-devel
 
