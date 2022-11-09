@@ -5,7 +5,7 @@ function printhelp {
 }
 
 # READ ARGS
-while [ ! -z  ${1} ]; do
+while [ ! -z ${1} ]; do
     case ${1} in
         '--headless')
             headless='yes'
@@ -48,6 +48,9 @@ if [ "${os}" == "fedora" ]; then
     if [ $? -ne 0 ]; then
             sudo dnf install -y ${pkgs}
     fi
+
+    # Allow user to use mock
+    sudo usermod -a -G mock ${USER}
 fi
 
 if [ "${os}" == debian ]; then
