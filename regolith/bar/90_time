@@ -1,4 +1,10 @@
 # Date Time
+[us-time]
+TZ=America/New_York
+command=date "+%I:%M %p"
+interval=xresource:i3xrocks.time.interval 10
+color=#B22234
+
 [greece-time]
 TZ=Europe/Athens
 command=date "+%I:%M %p"
