@@ -1,3 +1,5 @@
 if [ ! -z "$(\ls ~/.aliases.d)" ]; then
-	. ~/.aliases.d/*
+	for f in ~/.aliases.d/*; do
+		. ${f}
+	done
 fi

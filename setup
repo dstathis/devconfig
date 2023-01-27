@@ -61,7 +61,7 @@ if [ "${os}" == debian ]; then
 fi
 
 mkdir -p ~/.aliases.d
-cp *.aliases ~/.aliases.d/
+cp aliases.d/* ~/.aliases.d/
 cp aliases ~/.aliases
 
 if [ -z ${skipgit} ]; then
