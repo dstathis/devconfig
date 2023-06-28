@@ -7,6 +7,9 @@ flake8
 # General Utils
 apt-file
 
+# Regolith
+!i3xrocks-battery
+
 # Virtualization
 !virtinst
 !libvirt-daemon
