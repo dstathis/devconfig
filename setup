@@ -102,6 +102,9 @@ if [ -z ${headless} ]; then
         # Set up bar
         mkdir -p ~/.config/regolith2/i3xrocks/conf.d
         cp regolith/bar/* ~/.config/regolith2/i3xrocks/conf.d/
+        # Startup Programs
+        mkdir -p ~/bin
+        cp regolith/regolith-startup.sh ~/bin/
         # Refresh i3
         regolith-look refresh
     fi

@@ -7,3 +7,4 @@ i3-wm.binding.move_right: shift+semicolon
 i3-wm.binding.move_up: shift+l
 i3-wm.binding.move_down: shift+k
 i3-wm.gaps.inner.size: 0
+i3-wm.program.1: ~/bin/regolith-startup.sh

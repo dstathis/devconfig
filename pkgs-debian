@@ -9,6 +9,7 @@ apt-file
 
 # Regolith
 !i3xrocks-battery
+!network-manager-gnome
 
 # Virtualization
 !virtinst
