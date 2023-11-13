@@ -98,10 +98,10 @@ if [ -z ${headless} ]; then
     # Setup regolith
     if [ -d ~/.config/regolith2 ]; then
         # Set Xresources
-        cp regolith/Xresources ~/.config/regolith2/Xresources
+        cp regolith/Xresources ~/.config/regolith3/Xresources
         # Set up bar
-        mkdir -p ~/.config/regolith2/i3xrocks/conf.d
-        cp regolith/bar/* ~/.config/regolith2/i3xrocks/conf.d/
+        mkdir -p ~/.config/regolith3/i3xrocks/conf.d
+        cp regolith/bar/* ~/.config/regolith3/i3xrocks/conf.d/
         # Startup Programs
         mkdir -p ~/bin
         cp regolith/regolith-startup.sh ~/bin/

@@ -8,6 +8,7 @@ Plug 'bling/vim-airline'
 Plug 'jlfwong/vim-mercenary'
 Plug 'zivyangll/git-blame.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'nordtheme/vim'
 call plug#end()
 
 set number

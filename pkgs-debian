@@ -10,6 +10,11 @@ apt-file
 # Regolith
 !i3xrocks-battery
 !network-manager-gnome
+!regolith-desktop
+!regolith-session-flashback
+!regolith-session-sway
+!regolith-look-nord
+!regolith-wm-user-programs
 
 # Virtualization
 !virtinst
