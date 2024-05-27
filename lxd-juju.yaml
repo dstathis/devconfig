@@ -1,0 +1,16 @@
+write_files:
+  - path: /home/dylan/setup-juju
+    owner: 'dylan:dylan'
+    permissions: '0755'
+    defer: true
+    content: |
+      #!/usr/bin/bash
+      mkdir -p /home/dylan/repos
+      cd /home/dylan/repos
+      git clone https://github.com/dstathis/juju-dev-machine.git
+      cd juju-dev-machine
+      ./install --juju-channel "3/stable"
+runcmd:
+  - chown -R dylan:dylan /home/dylan
+  - su dylan -c "/home/dylan/setup-juju"
+  - rm /home/dylan/setup-juju

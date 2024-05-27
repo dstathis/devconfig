@@ -10,6 +10,9 @@ while [ ! -z ${1} ]; do
         '--headless')
             headless='yes'
             ;;
+        '--lxd')
+            lxd='yes'
+            ;;
         'k')
             skipgit='yes'
             ;;
@@ -60,6 +63,12 @@ if [ "${os}" == debian ]; then
     fi
 fi
 
+if [ ! -f "${HOME}/bin/yq" ]; then
+    mkdir -p ~/bin
+    curl -o ~/bin/yq -L https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+    chmod +x ~/bin/yq
+fi
+
 mkdir -p ~/.aliases.d
 cp aliases.d/* ~/.aliases.d/
 cp aliases ~/.aliases
@@ -108,4 +117,21 @@ if [ -z ${headless} ]; then
         # Refresh i3
         regolith-look refresh
     fi
+fi
+
+if [ ! -z ${lxd} ]; then
+    sudo snap install lxd
+    lxd init --auto
+    cat ~/.ssh/id_rsa | sed 's/^/        /' > privkey
+    cat ~/.ssh/id_rsa.pub | sed 's/^/        /' > pubkey
+
+    awk 'FNR==NR{s=s"\n"$0;next;} /%private_key%/{$0=substr(s,2);} 1' privkey lxd.yaml > profile.temp
+    profile=$(awk 'FNR==NR{s=s"\n"$0;next;} /%public_key%/{$0=substr(s,2);} 1' pubkey profile.temp)
+    echo "${profile}" > profile.temp
+    lxc profile set default user.user-data - < profile.temp
+    lxc profile copy default juju
+    yq eval-all '. as $item ireduce ({}; . *+ $item)' profile.temp lxd-juju.yaml | lxc profile set juju user.user-data -
+    rm profile.temp
+    rm privkey
+    rm pubkey
 fi
