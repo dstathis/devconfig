@@ -6,6 +6,7 @@ flake8
 
 # General Utils
 apt-file
+kitty-terminfo
 
 # Regolith
 !i3xrocks-battery
