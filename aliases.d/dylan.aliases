@@ -5,15 +5,6 @@ alias fin='find . -name'
 alias please='sudo $(fc -ln -1)'
 alias s='sudo'
 
-cd () {
-        if [ -z $@ ]; then
-                pushd ${HOME} > /dev/null
-        else
-                pushd $@ > /dev/null
-        fi
-}
-alias p='popd'
-
 image () {
 	sudo dd if=$1 of=$2 bs=1M status=progress oflag=direct
 }
